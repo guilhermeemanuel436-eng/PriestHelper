@@ -25,7 +25,7 @@ async def on_ready():
     await bot.tree.sync()
 
     atividade = discord.CustomActivity(
-        name="/info | bot deselvovido por zokyss#5330"
+        name="/info | 📚"
     )
 
     print(f"Bot ligado!")
@@ -38,12 +38,6 @@ async def on_ready():
     if not enviar_liturgia_automatica.is_running():
         enviar_liturgia_automatica.start()
     
-    try:
-        bot.add_view(PainelView())  # ← ADICIONADO AQUI
-        bot.add_view(TicketView(None))
-    except Exception as e:
-        print(f'Erro: {e}')
-
 # ===== COR DA LITURGIA =====
 def cor_embed(cor_liturgica: str) -> int:
     cores = {
