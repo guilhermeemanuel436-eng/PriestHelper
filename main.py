@@ -25,7 +25,7 @@ async def on_ready():
     await bot.tree.sync()
 
     atividade = discord.CustomActivity(
-        name="/info | 📚"
+        name="/info | 📄"
     )
 
     print(f"Bot ligado!")
@@ -182,7 +182,7 @@ async def enviar_liturgia_automatica():
         color=cor_embed(cor)
     )
 
-    adicionar_leituras(embed, "Primeira Leitura", leituras.get("primeiraLeitura", []), "📖")
+    adicionar_leituras(embed, "Primeira Leitura", leituras.get("primeiraLeitura", []), "📕")
     adicionar_leituras(embed, "Salmo", leituras.get("salmo", []), "🎵")
     adicionar_leituras(embed, "Segunda Leitura", leituras.get("segundaLeitura", []), "📘")
     adicionar_leituras(embed, "Evangelho", leituras.get("evangelho", []), "✝️")
