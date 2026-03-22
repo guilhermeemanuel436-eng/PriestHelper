@@ -422,7 +422,7 @@ async def info(interaction: discord.Interaction):
 
     embed.add_field(
         name="📗  Capítulos",
-        value="Entrega capítulos da Bíblia por meio da api organizados em Sub-Tópicos, use o comando `/capitulo` para ver um capítulo inteiro do livro bíblico selecionado.",
+        value="Entrega capítulos da Bíblia por meio da api organizados em trechos, use o comando `/capitulo` para ver um capítulo inteiro do livro bíblico selecionado.",
         inline=False
     )
 
