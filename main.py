@@ -425,6 +425,11 @@ async def info(interaction: discord.Interaction):
         value="Entrega capítulos da Bíblia por meio da api organizados em trechos, use o comando `/capitulo` para ver um capítulo inteiro do livro bíblico selecionado.",
         inline=False
     )
+    embed.add_field(
+        name="🤍 Divina Misericórdia",
+        value="Mini manual de como se rezar o Terço da Divina Miserícordia",
+        inline=False
+    )
 
     await interaction.response.send_message(embed=embed)
 
@@ -521,7 +526,7 @@ async def terço_misericordia(interaction: discord.Interaction):
 
     embed.set_image(url="https://i.pinimg.com/originals/07/d4/29/07d429f86c2abd819f4fbeef56826537.jpg")
 
-    embed.set_thumbnail("https://th.bing.com/th/id/R.128794d98f314b2f632b41e4a0a2bf06?rik=QHFksVPw8mN3%2fQ&pid=ImgRaw&r=0")
+    embed.set_thumbnail(url="https://th.bing.com/th/id/R.128794d98f314b2f632b41e4a0a2bf06?rik=QHFksVPw8mN3%2fQ&pid=ImgRaw&r=0")
 
     await interaction.response.send_message(embed=embed)
 
