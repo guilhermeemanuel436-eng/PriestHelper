@@ -28,7 +28,7 @@ async def on_ready():
         name="/info | 📄"
     )
 
-    print(f"Bot ligado!")
+    print(f"Bot ligado! 💭🗨💬")
 
     await bot.change_presence(
         status=discord.Status.online,
@@ -105,7 +105,7 @@ async def liturgia(
 
     except requests.RequestException:
         await interaction.response.send_message(
-            "⚠️ Não consegui acessar a liturgia agora ou você pode ter digitado a data errada.",
+            "*Não consegui acessar a liturgia agora ou a data errada pode estar errada.*",
             ephemeral=True
         )
         return
@@ -198,7 +198,7 @@ ADMIN_ROLE_ID = 1468779653647962296 #id do mod que nn pode banir outros menbros
 
 @bot.tree.command(name="capitulo", description="Mostra um capítulo inteiro da Bíblia")
 @app_commands.describe(
-    livro="Nome do livro (ex: João)",
+    livro="Nome do livro (ex: João, Eclesiástico, Provérbios, Apocalipse, Jeremias e etc...)",
     capitulo="Número do capítulo"
 )
 async def capitulo(
@@ -218,7 +218,7 @@ async def capitulo(
                 dados = None
 
     if not dados or "text" not in dados:
-        await interaction.followup.send("❌ Não encontrei esse capítulo.")
+        await interaction.followup.send("*Não encontrei esse capítulo.*")
         return
 
     texto = dados["text"]
@@ -236,7 +236,7 @@ async def capitulo(
             inline=False
         )
 
-    embed.set_footer(text=f"{livro} - Bíblia: Tradução Almeida")
+    embed.set_footer(text=f"Bíblia - {livro} - Tradução Almeida")
 
     await interaction.followup.send(embed=embed)
 
@@ -357,32 +357,32 @@ async def on_message(message: discord.Message):
             await message.delete()
 
             aviso = await message.channel.send(
-                f"{message.author.mention}, Cuidado com as palavras! 🕵️‍♂️🤐"
+                f"**{message.author.mention}, Cuidado com as palavras!**"
             )
             await aviso.delete(delay=60)
 
             embed = discord.Embed(
-                title="🚨 Advertência Automática",
+                title="**Advertência Automática**",
                 color=discord.Color.red(),
                 timestamp=datetime.datetime.utcnow()
             )
             embed.add_field(
-                name="👤 Usuário",
+                name="**Usuário**",
                 value=f"{message.author} ({message.author.id})",
                 inline=False
             )
             embed.add_field(
-                name="📍 Canal",
+                name="**Canal**",
                 value=message.channel.mention,
                 inline=False
             )
             embed.add_field(
-                name="🚫 Palavra / Frase",
+                name="**Palavra / Frase**",
                 value=f"`{padrao}`",
                 inline=False
             )
             embed.add_field(
-                name="💬 Mensagem original",
+                name="**Mensagem original**",
                 value=message.content[:1000],
                 inline=False
             )
@@ -421,8 +421,8 @@ async def info(interaction: discord.Interaction):
     )
 
     embed.add_field(
-        name="📗  Capítulos",
-        value="Entrega capítulos da Bíblia por meio da api organizados em trechos, use o comando `/capitulo` para ver um capítulo inteiro do livro bíblico selecionado.",
+        name="📗  Bíblia",
+        value="Entrega capítulos da Bíblia por meio da api organizados em trechos, use o comando `/biblia` para ver um capítulo inteiro do livro bíblico selecionado.",
         inline=False
     )
     embed.add_field(
