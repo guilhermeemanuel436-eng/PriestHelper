@@ -196,7 +196,7 @@ LOG_CHANNEL_ID = 1441541810454528064  # canal de advertências
 MOD_ROLE_ID = 1328141161101267006 # id do moderador (permissão total)
 ADMIN_ROLE_ID = 1468779653647962296 #id do mod que nn pode banir outros menbros
 
-@bot.tree.command(name="capitulo", description="Mostra um capítulo inteiro da Bíblia")
+@bot.tree.command(name="biblia", description="Mostra o capítulo selecionado da Bíblia")
 @app_commands.describe(
     livro="Nome do livro (ex: João, Eclesiástico, Provérbios, Apocalipse, Jeremias e etc...)",
     capitulo="Número do capítulo"
@@ -225,7 +225,7 @@ async def capitulo(
     partes = dividir_texto(texto, 1024)
 
     embed = discord.Embed(
-        title=f"📖 {livro} {capitulo}",
+        title=f"{livro} {capitulo}",
         color=discord.Color.gold()
     )
 
@@ -236,7 +236,7 @@ async def capitulo(
             inline=False
         )
 
-    embed.set_footer(text=f"Bíblia - {livro} - Tradução Almeida")
+    embed.set_footer(text=f"Livro de {livro} - Tradução Almeida")
 
     await interaction.followup.send(embed=embed)
 
@@ -405,23 +405,23 @@ async def on_message(message: discord.Message):
 @bot.tree.command(name="info", description="Informações sobre o bot")
 async def info(interaction: discord.Interaction):
     embed = discord.Embed(
-        title=f"⛪  Informações sobre {bot.user.name}",
+        title=f"**Informações sobre o bot**",
         description="Foi desenvolvido com o intuito de ajudar na gestão de liturgias e moderar discussões em servidores além de outras funções extras.",
         color=discord.Color.yellow()
     )
     embed.add_field(
-        name="📘  Liturgia",
+        name="**Liturgia**",
         value="O bot tem acesso a liturgia via api, use o comando `/liturgia` para obter a liturgia completa do dia ou de uma data específica, além disso, o bot manda a liturgia diária automaticamente as 3:00h",
         inline=False
     )
     embed.add_field(
-        name="🕵️‍♂️  Automod",
+        name="**Automod**",
         value="O bot monitora mensagens em threads do canal de debates e remove mensagens com palavras proibidas, enviando um aviso ao usuário e registrando a infração no canal de logs.",
         inline=False
     )
 
     embed.add_field(
-        name="📗  Bíblia",
+        name="**Bíblia**",
         value="Entrega capítulos da Bíblia por meio da api organizados em trechos, use o comando `/biblia` para ver um capítulo inteiro do livro bíblico selecionado.",
         inline=False
     )
